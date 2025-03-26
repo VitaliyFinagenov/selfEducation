@@ -4,13 +4,15 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        //replacementNumberInArray();
+        replacementNumberInArray();
         System.out.println();
-        //setValueArray();
+        setValueArray();
         System.out.println();
-        //multiplicationNumberInArray();
+        multiplicationNumberInArray();
         System.out.println();
-        //drowDiagonal();
+
+        int[][] twoDimensionalArray = {{5}, {5}};
+        drawDiagonal(twoDimensionalArray);
     }
 
     public static void replacementNumberInArray() {
@@ -43,8 +45,7 @@ public class Main {
         System.out.println(Arrays.toString(numbers));
     }
 
-    public static void drowDiagonal() {
-        int[][] twoDimensionalArray = {{5}, {5}};
+    public static void drawDiagonal(int[][] twoDimensionalArray) {
         for (int i = 0; i < twoDimensionalArray.length; i++) {
             for (int j = 0; j < twoDimensionalArray.length; j++) {
                 twoDimensionalArray[i][j] = 1;
@@ -52,9 +53,5 @@ public class Main {
             }
         }
         System.out.println(Arrays.toString(twoDimensionalArray));
-    }
-
-    public static void hello() {
-        System.out.println("Hello world");
     }
 }

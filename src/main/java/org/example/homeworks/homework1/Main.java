@@ -11,13 +11,11 @@ public class Main {
         printLine("Hallow", 5);
         System.out.println();
         System.out.println(leapYear1(2000));
+        System.out.println(leapYear(2000));
     }
 
     public static boolean sumNumbers(int a, int b) {
-        if (a + b >= 10 && a + b <= 20) {
-            return true;
-        }
-        return false;
+        return a + b >= 10 && a + b <= 20;
     }
 
     public static void positiveOrNegativeNumber(int a) {
@@ -29,10 +27,7 @@ public class Main {
     }
 
     public static boolean positiveNumberOrNot(int a) {
-        if (a >= 0) {
-            return true;
-        }
-        return false;
+        return a >= 0;
     }
 
     public static void printLine(String s, int count) {

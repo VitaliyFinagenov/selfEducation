@@ -18,8 +18,6 @@ public class Main {
         System.out.println();
         System.out.println(searchMaxMinNum());
         System.out.println();
-//        int[] ar = {5, 0, 5};
-//        System.out.println(something(ar));
         System.out.println(checkBalance(new int[]{4, 4, 1, 2, 2, 2, 2, 1}));
     }
 
@@ -102,28 +100,6 @@ public class Main {
       метод должен вернуть true, если в массиве есть место, в котором сумма левой и правой части массива равны
       от себя добавил вывод числа которое делит массив на левую и правую равные части, при этом не включаясь ни в одну из этих половин
      */
-//    public static boolean something(int[] arr) {
-//        int leftSide = arr[0];
-//        int rightSide = 0;
-//        for (int i = 2; i < arr.length; i++) {
-//            rightSide += arr[i];
-//        }
-//        for (int i = 0; i < arr.length; i++) {
-//            if (leftSide == rightSide){
-//                System.out.println(i+1);
-//                return true;
-//            } else {
-//                if (i == arr.length -1){ //проверка не выходит ли rightSide за пределы массива
-//                    System.out.println("выход за пределы массива");
-//                    return false;
-//                }
-//                leftSide += arr[i];
-//                rightSide -= arr[i+2];
-//            }
-//        }
-//        return false;
-//    }
-
     public static boolean checkBalance(int[] arr) {
         int sum = 0;
         int left = 0;

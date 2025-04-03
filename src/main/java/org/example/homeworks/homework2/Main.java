@@ -23,8 +23,6 @@ public class Main {
         System.out.println(checkBalance(new int[]{4, 4, 1, 2, 2, 2, 2, 1}));
 
         System.out.println(Arrays.toString(swap(new int[]{ 3, 5, 6, 1}, 2)));
-
-        System.out.println(Arrays.toString(swap(new int[]{ 3, 5, 6, 1}, 2)));
     }
 
     /*

@@ -21,6 +21,8 @@ public class Main {
 //        int[] ar = {5, 0, 5};
 //        System.out.println(something(ar));
         System.out.println(checkBalance(new int[]{4, 4, 1, 2, 2, 2, 2, 1}));
+
+        System.out.println(Arrays.toString(swap(new int[]{ 3, 5, 6, 1}, 2)));
     }
 
     /*
@@ -140,5 +142,39 @@ public class Main {
             }
         }
         return false;
+    }
+
+    public static int[] swap(int[] arr, int n) {
+        if (n > 0) {
+            return swapForward(arr, n);
+        }
+        return swapBack(arr, Math.abs(n));
+    }
+
+    private static int[] swapForward(int[] arr, int n) {
+        while (n > 0) {
+            int tmp = arr[arr.length-1];
+            for (int i = arr.length - 1; i > 0 ; i--) {
+                System.out.println(Arrays.toString(arr));
+                arr[i] = arr[i - 1];
+                System.out.println(Arrays.toString(arr));
+                System.out.println();
+            }
+            arr[0] = tmp;
+            n--;
+        }
+        return arr;
+    }
+
+    private static int[] swapBack(int[] arr, int n) {
+        while (n > 0) {
+            int tmp = arr[0];
+            for (int i = 0; i < arr.length - 1; i++) {
+                arr[i] = arr[i + 1];
+            }
+            arr[arr.length - 1] = tmp;
+            n--;
+        }
+        return arr;
     }
 }

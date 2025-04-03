@@ -13,6 +13,8 @@ public class Main {
 
         int[][] twoDimensionalArray = {{5}, {5}};
         drawDiagonal(twoDimensionalArray);
+
+        System.out.println(Arrays.toString(swap(new int[]{ 3, 5, 6, 1}, 2)));
     }
 
     public static void replacementNumberInArray() {
@@ -53,5 +55,39 @@ public class Main {
             }
         }
         System.out.println(Arrays.toString(twoDimensionalArray));
+    }
+
+    public static int[] swap(int[] arr, int n) {
+        if (n > 0) {
+            return swapForward(arr, n);
+        }
+        return swapBack(arr, Math.abs(n));
+    }
+
+    private static int[] swapForward(int[] arr, int n) {
+        while (n > 0) {
+            int tmp = arr[arr.length-1];
+            for (int i = arr.length - 1; i > 0 ; i--) {
+                System.out.println(Arrays.toString(arr));
+                arr[i] = arr[i - 1];
+                System.out.println(Arrays.toString(arr));
+                System.out.println();
+            }
+            arr[0] = tmp;
+            n--;
+        }
+        return arr;
+    }
+
+    private static int[] swapBack(int[] arr, int n) {
+        while (n > 0) {
+            int tmp = arr[0];
+            for (int i = 0; i < arr.length - 1; i++) {
+                arr[i] = arr[i + 1];
+            }
+            arr[arr.length - 1] = tmp;
+            n--;
+        }
+        return arr;
     }
 }

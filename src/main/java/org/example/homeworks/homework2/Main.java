@@ -11,7 +11,7 @@ public class Main {
         multiplicationNumberInArray();
         System.out.println();
 
-        int[][] twoDimensionalArray = {{5}, {5}};
+        int[][] twoDimensionalArray = new int[5][5];
         drawDiagonal(twoDimensionalArray);
         System.out.println();
         System.out.println(Arrays.toString(arrayInit(5, 1)));
@@ -22,7 +22,7 @@ public class Main {
 //        System.out.println(something(ar));
         System.out.println(checkBalance(new int[]{4, 4, 1, 2, 2, 2, 2, 1}));
 
-        System.out.println(Arrays.toString(swap(new int[]{ 3, 5, 6, 1}, 2)));
+        System.out.println(Arrays.toString(swap(new int[]{3, 5, 6, 1}, 2)));
     }
 
     /*
@@ -68,10 +68,20 @@ public class Main {
     с помощью двумерного массива нарисовать 2 диагонали цифрами 1
      */
     public static void drawDiagonal(int[][] twoDimensionalArray) {
-        for (int i = 0, j = 0; i < twoDimensionalArray.length && j < twoDimensionalArray.length; i++, j++) {
+        for (int i = 0, j = 0; i < twoDimensionalArray.length && j < twoDimensionalArray.length; i++, j++) { //способ 1
             twoDimensionalArray[i][j] = 1;
             twoDimensionalArray[i][twoDimensionalArray.length - 1 - i] = 1;
         }
+//        for (int i = 0; i < twoDimensionalArray.length; i++) {                                             //способ 2
+//            for (int j = 0; j < twoDimensionalArray.length; j++) {
+//                if (i == j) {
+//                    twoDimensionalArray[i][j] = 1;
+//                }
+//                if (j == twoDimensionalArray.length - 1 - i) {
+//                    twoDimensionalArray[i][j] = 1;
+//                }
+//            }
+//        }
 
         for (int i = 0; i < twoDimensionalArray.length; i++) {
             for (int j = 0; j < twoDimensionalArray[i].length; j++) {
@@ -153,12 +163,9 @@ public class Main {
 
     private static int[] swapForward(int[] arr, int n) {
         while (n > 0) {
-            int tmp = arr[arr.length-1];
-            for (int i = arr.length - 1; i > 0 ; i--) {
-                System.out.println(Arrays.toString(arr));
+            int tmp = arr[arr.length - 1];
+            for (int i = arr.length - 1; i > 0; i--) {
                 arr[i] = arr[i - 1];
-                System.out.println(Arrays.toString(arr));
-                System.out.println();
             }
             arr[0] = tmp;
             n--;

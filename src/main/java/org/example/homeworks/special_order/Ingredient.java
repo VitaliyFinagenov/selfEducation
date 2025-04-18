@@ -1,12 +1,13 @@
 package org.example.homeworks.special_order;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter
+@Setter
 public class Ingredient {
     private String name;
+
+    public Ingredient(String name) {
+        this.name = name;
+    }
 }

@@ -1,5 +1,8 @@
 package org.example.homeworks.homework6;
 
+import lombok.Getter;
+
+@Getter
 public class Plate {
     private int foodQuantity;
 
@@ -17,9 +20,5 @@ public class Plate {
 
     public void addFreshFood(int quantity) {
         foodQuantity += quantity;
-    }
-
-    public int getFoodQuantity() {
-        return foodQuantity;
     }
 }

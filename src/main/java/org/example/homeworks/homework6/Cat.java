@@ -2,11 +2,10 @@ package org.example.homeworks.homework6;
 
 import lombok.Getter;
 
+@Getter
 public class Cat {
     private String name;
-    @Getter
     private int appetite;
-    @Getter
     private boolean satiety;
 
     public Cat(String name, int appetite) {
@@ -14,8 +13,6 @@ public class Cat {
         this.appetite = appetite;
     }
 
-    public Cat() {
-    }
 
     public void eat(Plate plate) {
         if (satiety) {

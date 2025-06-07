@@ -5,29 +5,29 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(createList("дом", "машина", "животное", "птица", "рыба", "суп", "работа", "адрес", "цвет", "материал", "материал"));
-        ArrayList<String> words = new ArrayList<>(List.of("дом", "машина", "животное", "птица", "рыба", "суп", "работа", "адрес", "цвет", "материал", "материал"));
-        createSetList(createList()); //почему так возвращает пустые скобки?
-        System.out.println(createSetList(words));
+        List<String> words = createList("дом", "машина", "животное", "птица", "рыба", "суп", "работа", "адрес", "цвет", "материал", "материал");
+        List<String> setList = createSetList(words);
+        System.out.println(words);
+        System.out.println(setList);
         searchDuplicates(words, createSetList(words));
     }
 
-    private static ArrayList<String> createList(String... strings) {
-        ArrayList<String> wordsList = new ArrayList<>(List.of(strings));
-        return wordsList;
+    private static List<String> createList(String... strings) {
+        return List.of(strings);
     }
 
-    private static ArrayList<String> createSetList(ArrayList<String> words) {
-        ArrayList<String> wordsSetList = new ArrayList<>();
-        for (int i = 0; i < words.size(); i++) {
-            if (!wordsSetList.contains(words.get(i))) {
-                wordsSetList.add(words.get(i));
+    private static List<String> createSetList(List<String> words) {
+        List<String> wordsSetList = new ArrayList<>();
+        for (String word : words) {
+            if (!wordsSetList.contains(word)) {
+                wordsSetList.add(word);
             }
         }
         return wordsSetList;
     }
 
-    private static void searchDuplicates(ArrayList<String> words, ArrayList<String> wordsSetList) {
+
+    private static void searchDuplicates(List<String> words, List<String> wordsSetList) {
         for (int i = 0; i < wordsSetList.size(); i++) {
             int count = 0;
             for (int j = 0; j < words.size(); j++) {

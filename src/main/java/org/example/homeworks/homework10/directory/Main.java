@@ -14,19 +14,14 @@ public class Main {
         directory.put("555 55 55", "Маркушов");
         directory.put("444 44 44", "Иванов");
 
-        getSurnameByNumber("Иванов", directory);
+        getBySurname("Иванов", directory);
     }
 
-    private static void getSurnameByNumber(String surname, Map<String, String> directory) {
-        /*for (int i = 0; i < directory.size(); i++) {
-            if (surname.equals(directory.g)){
-                System.out.println(directory.g);
-            }
-        }*/
-
+    private static void getBySurname(String surname, Map<String, String> directory) {
+        System.out.println("По фамилии " + surname + ":");
         for (Map.Entry<String, String> element : directory.entrySet()) {
-            if (surname.equals(element.getValue())) {
-                System.out.println("По фамилии: " + element.getValue() + ", тел. = " + element.getKey() + ";");
+            if (element.getValue().equals(surname)) {
+                System.out.println(String.format("\tтел. = %s;", element.getKey()));
             }
         }
     }

@@ -1,5 +1,8 @@
 package org.example.homeworks.homework14v2;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class Road extends Stage {
     public int length;
     public String description;
@@ -12,11 +15,11 @@ public class Road extends Stage {
     @Override
     public void go(Car car) {
         try {
-            System.out.println(car.getName() + " начал этап: " + description);
+            log.info("{} начал этап: {}", car.getName(), description);
             Thread.sleep(length / car.getSpeed() * 1000);
-            System.out.println(car.getName() + " закончил этап: " + description);
+            log.info("{} закончил этап: {}", car.getName(), description);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            log.error("Произошла ошибка {}", e.getMessage());
         }
     }
 }

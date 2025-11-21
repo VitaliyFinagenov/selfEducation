@@ -1,18 +1,21 @@
 package org.example.homeworks.homework14v2;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.concurrent.ExecutorService;
 
 import static java.util.concurrent.Executors.newFixedThreadPool;
 
+@Slf4j
 public class Main {
     public static final int CARS_COUNT = 4;
 
     public static void main(String[] args) {
-        System.out.println("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Подготовка!!!");
+        log.info("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Подготовка!!!");
         SignalFinish signalFinish = new SignalFinish(CARS_COUNT);
         ExecutorService executorService = newFixedThreadPool(CARS_COUNT);
 
-        Runnable afterStartAction = () -> System.out.println("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Гонка началась!!!");
+        Runnable afterStartAction = () -> log.info("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Гонка началась!!!");
         CarService carService = new CarService(CARS_COUNT, signalFinish, afterStartAction);
 
         Race race = new Race(new Road(60), new Tunnel(CARS_COUNT), new Road(40));
@@ -28,7 +31,7 @@ public class Main {
         carService.awaitingAllCarsStarted();
 
         signalFinish.waitWhileAllCarsFinished();
-        System.out.println("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Гонка закончилась!!!");
+        log.info("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Гонка закончилась!!!");
 
         executorService.shutdown();
     }

@@ -1,8 +1,13 @@
 package org.example.homeworks.homework14v2;
 
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+@Slf4j
+@Data
 public class Car implements Runnable {
     private static int CARS_COUNT;
     private Race race;
@@ -21,29 +26,21 @@ public class Car implements Runnable {
         this.signalFinish = signalFinish;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
-
     @Override
     public void run() {
         try {
             preparation();
             waitForPrepareBarrier.await();
         } catch (Exception exception) {
-            exception.printStackTrace();
+            log.error("Произошла ошибка  {}", exception.getMessage());
         }
         startRace();
     }
 
     private void preparation() throws InterruptedException {
-        System.out.println(this.name + " готовится");
+        log.info("{} готовится", this.name);
         Thread.sleep(500 + (int) (Math.random() * 800));
-        System.out.println(this.name + " готов");
+        log.info("{} готов", this.name);
     }
 
     private void startRace() {
@@ -56,7 +53,7 @@ public class Car implements Runnable {
 
     private void checkWin() {
         if (!isWinner.getAndSet(true)) {
-            System.out.println("\nWIN " + this.name + "\n");
+            log.warn("WIN {}", this.name);
         }
     }
 

@@ -1,7 +1,10 @@
 package org.example.homeworks.homework14v2;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.concurrent.Semaphore;
 
+@Slf4j
 public class Tunnel extends Stage {
 
     public int length;
@@ -18,19 +21,18 @@ public class Tunnel extends Stage {
     public void go(Car car) {
         try {
             try {
-                System.out.println(car.getName() + " готовится к этапу(ждет): " + description);
+                log.info("{} готовится к этапу(ждет): {}", car.getName(), description);
                 maxCarsLimit.acquire();
-                System.out.println(car.getName() + " начал этап: " + description);
-                Thread.sleep(length / car.getSpeed() * 1000);
+                log.info("{} начал этап: {}", car.getName(), description);
+                Thread.sleep(length / car.getSpeed() * 1000L);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                log.error("Произошла ошибка {}", e.getMessage());
             } finally {
-                System.out.println(car.getName() + " закончил этап: " + description);
-
+                log.info("{} закончил этап: {}", car.getName(), description);
                 maxCarsLimit.release();
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Произошла ошибка {}", e.getMessage());
         }
     }
 }

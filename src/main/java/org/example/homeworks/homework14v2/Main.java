@@ -1,10 +1,10 @@
 package org.example.homeworks.homework14v2;
 
 import lombok.extern.slf4j.Slf4j;
-
 import java.util.concurrent.ExecutorService;
 
 import static java.util.concurrent.Executors.newFixedThreadPool;
+
 
 @Slf4j
 public class Main {

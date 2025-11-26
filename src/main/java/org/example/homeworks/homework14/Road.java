@@ -1,12 +1,6 @@
 package org.example.homeworks.homework14;
 
 public class Road implements Stage {
-//    public Road(int length) {
-//        this.length = length;
-//        this.description = "Дорога " + length + " метров";
-//    }
-
-
     public int length;
     public String description;
     public boolean lustStretch;

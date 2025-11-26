@@ -1,11 +1,14 @@
 package org.example.homeworks.homework14v2;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
+@Slf4j
 public class CarService {
     private final CyclicBarrier waitForPrepareBarrier;
-    private SignalFinish signalFinish;
+    private final SignalFinish signalFinish;
 
     public CarService(int carCount, SignalFinish signalFinish, Runnable afterStartAction) {
         this.waitForPrepareBarrier = new CyclicBarrier(carCount + 1, afterStartAction);
@@ -20,7 +23,7 @@ public class CarService {
         try {
             waitForPrepareBarrier.await();
         } catch (InterruptedException | BrokenBarrierException e) {
-            e.printStackTrace();
+            log.error("Произошла ошибка : {}", e.getMessage());
         }
     }
 }

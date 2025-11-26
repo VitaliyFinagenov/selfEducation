@@ -60,20 +60,4 @@ public class Car implements Runnable {
     public AtomicInteger getAtomicCounter() {
         return atomicCounter;
     }
-
-    //    private void preparation() {
-//        synchronized (lock) {
-//            try {
-//                System.out.println(this.name + " готовится");
-//                readyMadeThread++;
-//                Thread.sleep(500 + (int) (Math.random() * 800));
-//                System.out.println(this.name + " готов");
-//                System.out.println(readyMadeThread);
-//                lock.notify();
-//                lock.wait();
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
 }
